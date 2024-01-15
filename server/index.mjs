@@ -1,12 +1,11 @@
-const express = require('express');
-const dotenv = require('dotenv');
+import express from 'express';
+import dotenv from 'dotenv';
 
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT;
 
-
-const loginSignupRoute = require('./routes/loginSignup');
+import loginSignupRoute from './routes/loginSignup.mjs';
 
 app.use('/hello',loginSignupRoute);
 app.listen(PORT,function(){
