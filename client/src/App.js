@@ -1,15 +1,18 @@
-import './App.css';
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
+import React from "react";
+import AdminLogin from "./pages/temp/AdminLogin.jsx";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <h1>Hello World</h1>
-      <Footer />
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<AdminLogin />} />
+          
+        </Routes>
+      </Router>
     </div>
   );
-}
+};
 
 export default App;
