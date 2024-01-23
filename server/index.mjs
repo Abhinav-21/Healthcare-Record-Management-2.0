@@ -1,13 +1,17 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
-const app = express();
+import loginSignupRoute from './routes/loginSignup.mjs';
 dotenv.config();
 const PORT = process.env.PORT;
 
-import loginSignupRoute from './routes/loginSignup.mjs';
+const app = express();
+app.use(cors({credentials:true, origin:'http://localhost:3000'}));
+app.use(express.json());
+app.use('/test',loginSignupRoute);
 
-app.use('/hello',loginSignupRoute);
+
 app.listen(PORT,function(){
     console.log(`SERVER RUNNING ON ${PORT}`);
 })
